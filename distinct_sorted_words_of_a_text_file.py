@@ -16,8 +16,8 @@ def sort(string_list):
     sorted_list = sorted(string_list)
     return sorted_list
     
-def parse(string):
-    file = open(string, "r")
+def parse(full_path):
+    file = open(full_path, "r")
     content = file.read()
     file.close()
     distinct_words_list = deduplicate(content)
@@ -26,7 +26,7 @@ def parse(string):
     print(sorted_words)
  
 ap = argparse.ArgumentParser()
-ap.add_argument("-i", "--inputfile", required=True, help="Path to the input text file")
+ap.add_argument("-i", "--inputfile", required=True, help="Full path to the input text file")
 args = vars(ap.parse_args())
 parse(args["inputfile"])
  
